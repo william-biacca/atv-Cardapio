@@ -1,26 +1,27 @@
 import ItemCardapio from './components/ItemCardapio';
 
+// 1. Array com os dados dos produtos
+const bancoDeDados = [
+  { id: 1, nome: "X-Bacon Duplo", descricao: "Duas carnes e muito bacon.", preco: 35.00 },
+  { id: 2, nome: "Pizza Calabresa", descricao: "Tamanho Média 8 pedaços.", preco: 45.00 },
+  { id: 3, nome: "Suco de Laranja", descricao: "Copo 500ml natural.", preco: 8.00 },
+  { id: 4, nome: "Pudim Caseiro", descricao: "Fatia caprichada com calda extra.", preco: 12.00 }
+];
+
 function App() {
-    return (
-        <div>
-            <h1>Senai Delivery</h1>
-            <ItemCardapio
-                nome="X-Bacon"
-                descricao="Delicioso sanduíche com bacon, queijo e molho especial."
-                preco="R$ 15,00"
-            />
-            <ItemCardapio
-                nome="Batata Frita"
-                descricao="Porção de batatas fritas crocantes e douradas."
-                preco="R$ 8,00"
-            />
-            <ItemCardapio
-                nome="Refrigerante"
-                descricao="Bebida gelada para acompanhar sua refeição."
-                preco="R$ 5,00"
-            />
-        </div>
-    );
+  return (
+    <div>
+      <h1>Senai Delivery</h1>
+      {bancoDeDados.map((item) => (
+        <ItemCardapio
+          key={item.id}
+          nome={item.nome}
+          descricao={item.descricao}
+          preco={item.preco}
+        />
+      ))}
+    </div>
+  );
 }
 
 export default App;
